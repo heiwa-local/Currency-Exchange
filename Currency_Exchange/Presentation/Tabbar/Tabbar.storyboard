@@ -17,7 +17,10 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pYQ-cD-EPW">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.68627450980000004" green="0.83921568629999999" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.68627450980000004" green="0.83921568629999999" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="sUJ-db-hBm" kind="relationship" relationship="viewControllers" id="XM8-pr-NOy"/>
@@ -83,6 +86,7 @@
                                                 <constraint firstItem="c7b-3q-sHz" firstAttribute="baseline" secondItem="qzk-DW-1FG" secondAttribute="baseline" id="WUp-dn-OgZ"/>
                                                 <constraint firstItem="c7b-3q-sHz" firstAttribute="firstBaseline" secondItem="qzk-DW-1FG" secondAttribute="firstBaseline" id="Ymv-r2-hI9"/>
                                                 <constraint firstItem="qzk-DW-1FG" firstAttribute="leading" secondItem="c7b-3q-sHz" secondAttribute="trailing" constant="36" id="bpx-r4-oO2"/>
+                                                <constraint firstAttribute="trailing" secondItem="qzk-DW-1FG" secondAttribute="trailing" constant="10" id="mFg-YB-RPG"/>
                                                 <constraint firstAttribute="bottom" secondItem="qzk-DW-1FG" secondAttribute="bottom" id="scI-Tz-7pn"/>
                                                 <constraint firstItem="qzk-DW-1FG" firstAttribute="top" secondItem="s8W-Iv-D11" secondAttribute="top" id="ykG-qA-mep"/>
                                             </constraints>
@@ -105,26 +109,72 @@
                     </view>
                     <navigationItem key="navigationItem" id="Etq-Pp-CP1"/>
                     <connections>
+                        <outlet property="closePopUpButton" destination="Euz-Nm-7OM" id="Wix-85-eto"/>
+                        <outlet property="confirmPopUpButton" destination="jc1-Ao-Qjg" id="5aT-F0-IbU"/>
+                        <outlet property="currenciesPickerView" destination="MrE-1W-fj3" id="Qfg-GH-j8e"/>
                         <outlet property="currencyTable" destination="hyn-nv-kzR" id="fsJ-3S-jpJ"/>
                         <outlet property="popUpView" destination="gsH-ka-5bC" id="Gvw-Ia-KM2"/>
                         <outlet property="searchBar" destination="OD4-fG-5Jn" id="6My-mu-EVw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z4a-7j-SJS">
+                    <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view contentMode="scaleToFill" id="gsH-ka-5bC">
-                    <rect key="frame" x="0.0" y="0.0" width="314" height="174"/>
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYp-3L-acf">
-                            <rect key="frame" x="92" y="15" width="131" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dch-iQ-h1o">
+                            <rect key="frame" x="10" y="10" width="280" height="180"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Change base currency" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfL-ve-C2y">
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="23"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MrE-1W-fj3">
+                                    <rect key="frame" x="0.0" y="23" width="280" height="126"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="Y6W-OH-hqX" id="Nc4-jp-NRV"/>
+                                        <outlet property="delegate" destination="Y6W-OH-hqX" id="Zbs-Z6-iZ8"/>
+                                    </connections>
+                                </pickerView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Zzv-si-8u8">
+                                    <rect key="frame" x="0.0" y="149" width="280" height="31"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jc1-Ao-Qjg">
+                                            <rect key="frame" x="0.0" y="0.0" width="137.5" height="31"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="filled" title="Confirm"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Euz-Nm-7OM">
+                                            <rect key="frame" x="142.5" y="0.0" width="137.5" height="31"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="filled" title="Close">
+                                                <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                            </buttonConfiguration>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="180" id="E7y-pn-loW"/>
+                                <constraint firstAttribute="width" constant="280" id="dw9-oJ-DFa"/>
+                            </constraints>
+                        </stackView>
                     </subviews>
-                    <viewLayoutGuide key="safeArea" id="m7Q-XV-mv1"/>
-                    <color key="backgroundColor" systemColor="systemBlueColor"/>
+                    <viewLayoutGuide key="safeArea" id="NHM-1d-qpC"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="NHM-1d-qpC" firstAttribute="trailing" secondItem="dch-iQ-h1o" secondAttribute="trailing" constant="10" id="9Ut-G8-lak"/>
+                        <constraint firstItem="dch-iQ-h1o" firstAttribute="leading" secondItem="NHM-1d-qpC" secondAttribute="leading" constant="10" id="GcT-cE-HmE"/>
+                    </constraints>
                 </view>
                 <searchBar contentMode="redraw" showsCancelButton="YES" id="OD4-fG-5Jn">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
@@ -139,7 +189,7 @@
                     </connections>
                 </searchBar>
             </objects>
-            <point key="canvasLocation" x="-533" y="1681"/>
+            <point key="canvasLocation" x="-1306" y="1574"/>
         </scene>
         <!--CurrencyConverter-->
         <scene sceneID="LpT-cX-SZ2">
@@ -165,15 +215,25 @@
                         <imageReference key="image" image="chart.line.uptrend.xyaxis.circle" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dYx-Ra-lFY">
+                    <navigationBar key="navigationBar" alpha="0.5" contentMode="scaleToFill" id="dYx-Ra-lFY">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.68627450980000004" green="0.83921568629999999" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                         </textAttributes>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" red="0.68627450980000004" green="0.83921568629999999" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" red="0.68627450980000004" green="0.83921568629999999" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -193,9 +253,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="O4H-EZ-pnd">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemBrownColor"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                         </textAttributes>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" red="0.68627450980000004" green="0.83921568629999999" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -214,8 +278,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
