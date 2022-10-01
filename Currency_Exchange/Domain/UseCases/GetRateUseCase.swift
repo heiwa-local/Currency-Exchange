@@ -1,0 +1,20 @@
+//
+//  GetCurrencyExchangeByParamsUseCase.swift
+//  Currency_Exchange
+//
+//  Created by kunari on 19.08.2022.
+//
+
+import Foundation
+
+class GetRateUseCase {
+    private let currencyExchangeRepository = CurrencyConvertRepository()
+    var rates: [String: Double] = [:]
+    
+    func execute (to: String, from: String, amount: Double, complition: @escaping([String: Double]) -> Void) {
+        currencyExchangeRepository.getRate(to: to, from: from, amount: amount){ result in
+            self.rates[result.query.to] = result.result
+        }
+        complition(rates)
+    }
+}
