@@ -10,7 +10,7 @@ import UIKit
 import RxRelay
 import RxSwift
 
-class CurrencyConverterController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ConverterVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var baseCurrencyButton: UIButton!
@@ -18,7 +18,7 @@ class CurrencyConverterController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var valueTextField: UITextField!
     @IBOutlet weak var addCurrencyButton: UIButton!
     
-    private let viewModel: CurrencyConverterViewModel = CurrencyConverterViewModel()
+    private let viewModel: ConverterViewModel = ConverterViewModel()
     private let disposeBag = DisposeBag()
     
     var rates: [String: Double] = [:]
@@ -63,7 +63,7 @@ class CurrencyConverterController: UIViewController, UITableViewDelegate, UITabl
             }
         }).disposed(by: disposeBag)
         
-        viewModel.getRatesNames()
+        viewModel.getCurrenciesNames()
         viewModel.getRate(to: "RUB", from: "USD", amount: 1)
     }
     
@@ -71,7 +71,7 @@ class CurrencyConverterController: UIViewController, UITableViewDelegate, UITabl
         return rates.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellConverter", for: indexPath) as! CurrencyConverterViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellConverter", for: indexPath) as! ConverterViewCell
         cell.currencyNameLabel.text = String(Array(rates)[indexPath.row].key)
         cell.currencyValueLabel.text = String(Array(rates)[indexPath.row].value)
         return cell

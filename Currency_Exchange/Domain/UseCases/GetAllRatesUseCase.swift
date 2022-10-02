@@ -8,11 +8,11 @@
 import Foundation
 
 class GetAllRatesUseCase {
-    private let repository = DataResponseRepository()
+    private let repository = RatesRepository()
     
-    func execute (base rate: String, complition: @escaping((Rates) -> Void)) {
+    func execute (base rate: String, complition: @escaping(([String: Double]) -> Void)) {
         repository.getAllRates(base: rate) {result in
-            complition(result)
+            complition(result.rates)
         }
     }
 }

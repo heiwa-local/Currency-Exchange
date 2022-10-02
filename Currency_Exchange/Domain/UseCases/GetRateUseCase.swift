@@ -8,11 +8,11 @@
 import Foundation
 
 class GetRateUseCase {
-    private let currencyExchangeRepository = CurrencyConvertRepository()
+    private let repository = RateRepository()
     var rates: [String: Double] = [:]
     
     func execute (to: String, from: String, amount: Double, complition: @escaping([String: Double]) -> Void) {
-        currencyExchangeRepository.getRate(to: to, from: from, amount: amount){ result in
+        repository.getRate(to: to, from: from, amount: amount){ result in
             self.rates[result.query.to] = result.result
         }
         complition(rates)

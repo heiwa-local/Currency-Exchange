@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SymbolsResponseRepository {
+class CurrenciesNamesRepository {
     private let currencyExchangeAPI: CurrencyExchangeAPI = CurrencyExchangeAPI()
     
     func getCurrenciesNames(complition: @escaping((CurrenciesNames) -> Void)) {

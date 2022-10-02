@@ -35,7 +35,7 @@
         <!--CurrencyList-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController title="CurrencyList" id="Y6W-OH-hqX" customClass="CurrencyListController" customModule="Currency_Exchange" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="CurrencyList" id="Y6W-OH-hqX" customClass="ListVC" customModule="Currency_Exchange" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="jxv-wG-1sp" customClass="CurrencyListViewCell" customModule="Currency_Exchange" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="jxv-wG-1sp" customClass="ListViewCell" customModule="Currency_Exchange" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jxv-wG-1sp" id="s8W-Iv-D11">
@@ -190,7 +190,7 @@
         <!--CurrencyInfoController-->
         <scene sceneID="T5Q-1n-Ue4">
             <objects>
-                <viewController storyboardIdentifier="CurrencyInfoController" title="CurrencyInfo" id="QWF-En-W6X" userLabel="CurrencyInfoController" customClass="CurrencyInfoController" customModule="Currency_Exchange" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CurrencyInfoController" title="CurrencyInfo" id="QWF-En-W6X" userLabel="CurrencyInfoController" customClass="InfoVC" customModule="Currency_Exchange" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DnJ-qC-iFE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -206,7 +206,7 @@
         <!--CurrencyConverter-->
         <scene sceneID="LpT-cX-SZ2">
             <objects>
-                <viewController title="CurrencyConverter" id="Xuz-No-rZG" customClass="CurrencyConverterController" customModule="Currency_Exchange" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="CurrencyConverter" id="Xuz-No-rZG" customClass="ConverterVC" customModule="Currency_Exchange" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qCb-ZW-fDM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -249,7 +249,6 @@
                                                         <constraint firstAttribute="height" constant="50" id="9TR-yG-hcs"/>
                                                         <constraint firstAttribute="width" constant="100" id="o0a-TH-x7o"/>
                                                     </constraints>
-                                                    <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                                 </textField>
@@ -301,7 +300,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellConverter" id="ivl-QW-npc" customClass="CurrencyConverterViewCell" customModule="Currency_Exchange" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellConverter" id="ivl-QW-npc" customClass="ConverterViewCell" customModule="Currency_Exchange" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="114.5" width="414" height="50.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ivl-QW-npc" id="m9s-YX-Mkf">

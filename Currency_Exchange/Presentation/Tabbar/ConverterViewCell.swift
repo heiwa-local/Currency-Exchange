@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrencyConverterViewCell: UITableViewCell {
+class ConverterViewCell: UITableViewCell {
     @IBOutlet weak var currencyImageView: UIImageView!
     @IBOutlet weak var currencyNameLabel: UILabel!
     @IBOutlet weak var currencyValueLabel: UILabel!

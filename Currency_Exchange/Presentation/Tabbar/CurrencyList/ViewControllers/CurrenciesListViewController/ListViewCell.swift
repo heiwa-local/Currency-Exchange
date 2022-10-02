@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class CurrencyListViewCell: UITableViewCell {
+class ListViewCell: UITableViewCell {
         
     @IBOutlet weak var currencyName: UILabel!
     @IBOutlet weak var currencyValue: UILabel!

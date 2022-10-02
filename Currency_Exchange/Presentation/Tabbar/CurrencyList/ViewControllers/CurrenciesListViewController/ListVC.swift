@@ -10,9 +10,9 @@ import RxSwift
 import RxRelay
 import UIKit
 
-class CurrencyListController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    private let viewModel: CurrencyListViewModel = CurrencyListViewModel()
+    private let viewModel: ListViewModel = ListViewModel()
     private let disposeBag = DisposeBag()
     
     var searchActive = true
@@ -85,8 +85,8 @@ class CurrencyListController: UIViewController, UITableViewDelegate, UITableView
         
         filteredCurrenciesRates = currenciesRates
         
-        viewModel.getRatesNames()
-        viewModel.getRatesList(base: baseCurrency)
+        viewModel.getCurrenciesNames()
+        viewModel.getAllRates(base: baseCurrency)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,14 +95,14 @@ class CurrencyListController: UIViewController, UITableViewDelegate, UITableView
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CurrencyListViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListViewCell
         cell.currencyName.text = curenciesNames[String(Array(filteredCurrenciesRates)[indexPath.row].key)]
         cell.currencyValue.text = String(Array(filteredCurrenciesRates)[indexPath.row].value)
         
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "CurrencyInfoController") as? CurrencyInfoController{
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "CurrencyInfoController") as? InfoVC{
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -186,7 +186,7 @@ class CurrencyListController: UIViewController, UITableViewDelegate, UITableView
     
     @objc func confirmChanges(){
         self.baseCurrency = self.pickerBaseCurrency
-        viewModel.getRatesList(base: self.baseCurrency)
+        viewModel.getAllRates(base: self.baseCurrency)
         UIView.animate(withDuration: 1) {
             self.popUpView.alpha = 0
             self.popUpView.center.y = 0

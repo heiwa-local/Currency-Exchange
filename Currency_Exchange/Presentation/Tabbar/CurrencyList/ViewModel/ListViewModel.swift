@@ -9,25 +9,23 @@ import Foundation
 import RxSwift
 import RxRelay
 
-class CurrencyListViewModel {
+class ListViewModel {
 
     let getAllRatesUseCase = GetAllRatesUseCase()
     let getAllRatesNamesUseCase = GetCurrenciesNamesUseCase()
     
     let obsRates = PublishRelay<[String: Double]>()
     let obsCurrenciesNames = PublishRelay<[String: String]>()
-    
-//    let currencySymbols = SymbolsResponseModel.init()
-    
-    func getRatesList(base rate: String){
+        
+    func getAllRates(base rate: String){
         getAllRatesUseCase.execute(base: rate){ data in
-            self.obsRates.accept(data.rates)
+            self.obsRates.accept(data)
         }
     }
     
-    func getRatesNames() {
+    func getCurrenciesNames() {
         getAllRatesNamesUseCase.execute() { data in
-            self.obsCurrenciesNames.accept(data.symbols)
+            self.obsCurrenciesNames.accept(data)
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DataResponseRepository {
+class RatesRepository {
     private let currencyExchangeAPI: CurrencyExchangeAPI = CurrencyExchangeAPI()
         
     func getAllRates(base: String, complition: @escaping((Rates) -> Void)){

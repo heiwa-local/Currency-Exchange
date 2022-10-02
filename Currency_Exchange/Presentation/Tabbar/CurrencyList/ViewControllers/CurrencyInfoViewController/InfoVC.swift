@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class CurrencyInfoController: UIViewController {
+class InfoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,9 +11,9 @@ import RxRelay
 
 class MainViewModel {
     
-    let currencyExchangeResultRepository: CurrencyConvertRepository = CurrencyConvertRepository()
+    let currencyExchangeResultRepository: RateRepository = RateRepository()
     
-    let currencyExchangeResult = PublishRelay<ConvertResponseModel>()
+    let currencyExchangeResult = PublishRelay<Rate>()
     
 //    func getCurrenctExchangeByParams(from: String, to: String, amount: Double){
 //

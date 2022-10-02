@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct ConvertResponseModel: Codable{
+struct Rate: Codable{
     var success: Bool
     var query: CurrencyExchangeQuery
     var info: CurrencyExchangeInfo
     var date: String
     var result: Double
     
-    mutating func setData(currencyExchangeResult: ConvertResponseModel) {
+    mutating func setData(currencyExchangeResult: Rate) {
         self.success = currencyExchangeResult.success
         self.query = currencyExchangeResult.query
         self.info = currencyExchangeResult.info

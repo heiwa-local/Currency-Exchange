@@ -8,7 +8,7 @@
 import Foundation
 import RxRelay
 
-class CurrencyConverterViewModel {
+class ConverterViewModel {
     let getAllRatesNamesUseCase = GetCurrenciesNamesUseCase()
     let getRateUseCase = GetRateUseCase()
     
@@ -16,9 +16,9 @@ class CurrencyConverterViewModel {
     let obsRates = PublishRelay<[String: Double]>()
     let obsCurrenciesNames = PublishRelay<[String: String]>()
     
-    func getRatesNames() {
+    func getCurrenciesNames() {
         getAllRatesNamesUseCase.execute() { data in
-            self.obsCurrenciesNames.accept(data.symbols)
+            self.obsCurrenciesNames.accept(data)
         }
     }
     

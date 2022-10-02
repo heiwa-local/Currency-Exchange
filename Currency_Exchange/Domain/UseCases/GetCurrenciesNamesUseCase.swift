@@ -8,11 +8,11 @@
 import Foundation
 
 class GetCurrenciesNamesUseCase {
-    private let repository = SymbolsResponseRepository()
+    private let repository = CurrenciesNamesRepository()
     
-    func execute(complition: @escaping((CurrenciesNames) -> Void )) {
+    func execute(complition: @escaping(([String: String]) -> Void )) {
         repository.getCurrenciesNames(){ data in
-            complition(data)
+            complition(data.symbols)
         }
     }
 }

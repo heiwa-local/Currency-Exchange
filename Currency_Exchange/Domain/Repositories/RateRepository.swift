@@ -8,14 +8,14 @@
 import Foundation
 import RxSwift
 
-class CurrencyConvertRepository {
+class RateRepository {
     let currencyExchangeAPI = CurrencyExchangeAPI()
     
-    func getRate(to: String, from: String, amount: Double, complition: @escaping((ConvertResponseModel) -> Void)) {
+    func getRate(to: String, from: String, amount: Double, complition: @escaping((Rate) -> Void)) {
         
         currencyExchangeAPI.getRate(to: to, from: from, amount: amount) { result in
             do {
-                let responce = try JSONDecoder().decode(ConvertResponseModel.self, from: result)
+                let responce = try JSONDecoder().decode(Rate.self, from: result)
                 complition(responce)
             }
             catch {
